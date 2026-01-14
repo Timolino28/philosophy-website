@@ -1,16 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+import { listQuotes } from "@/lib/quotes";
 
-export default function Home() {
+export default async function Home() {
+  const quotes = await listQuotes();
+
   return (
     <div className="h-screen flex flex-col justify-center items-center">
-      <div>
-        <h1 className="text-3xl text-center italic">
-          "What such a man needs is not courage but nerve control, cool
-          headedness. This he can get only by practice."{" "}
-        </h1>
-        <p className="text-xl mt-3">- Theodore Roosevelt</p>
-      </div>
+      {quotes.map((q) => (
+        <div key={q.id}>
+          <h1 className="text-3xl text-center italic">"{q.text}" </h1>
+          <p className="text-xl mt-3">- {q.author}</p>
+        </div>
+      ))}
+
       <div className="flex gap-5 mt-10">
         <Button className="cursor-pointer">
           <ArrowLeftIcon />
