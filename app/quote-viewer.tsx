@@ -55,6 +55,10 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
     });
   };
 
+  const cleanQuote = (text: string) => {
+    return text.replace(/“|”/g, '');
+  }
+
   const q = quotes[current];
 
   return (
@@ -72,7 +76,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
 
             {/* Quote Text */}
             <h1 className="text-2xl md:text-3xl font-serif leading-relaxed text-foreground/90">
-              {q.text}
+              {cleanQuote(q.text)}
             </h1>
 
             {/* Divider */}
