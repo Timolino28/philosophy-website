@@ -17,8 +17,10 @@
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "postgres": "^3.4.8",
+    "puppeteer": "^24.35.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "server-only": "^0.0.1",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
