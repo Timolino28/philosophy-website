@@ -77,50 +77,47 @@ async function saveQuote(quote: Quote) {
 async function scrapeQuotes() {
     console.log('Starting scraper...');
 
-    // 1. Launch the browser
     const browser = await puppeteer.launch({ headless: true });
-
-    // 2. Open a new page
     const page = await browser.newPage();
 
-    // 3. Navigate to the website
-    // Replace this with the actual URL you want to scrape
-    const url = 'https://quotes.toscrape.com/';
-    console.log(`Navigating to ${url}...`);
-    await page.goto(url, { waitUntil: 'networkidle2' });
+    const allQuotes: Quote[] = [];
 
-    // 4. Extract data
-    const quotes = await page.evaluate(() => {
-        // Select all the elements that contain the quotes.
-        // CHANGE THIS SELECTOR to match your target website
-        const quoteElements = document.querySelectorAll('.quote');
+    // Loop through pages 1 to 3
+    for (let i = 1; i <= 3; i++) {
+        const url = `https://quotes.toscrape.com/page/${i}/`;
+        console.log(`Navigating to ${url}...`);
 
-        return Array.from(quoteElements).map((element) => {
-            // CHANGE THESE SELECTORS to match your target website
-            const textElement = element.querySelector('.text');
-            const authorElement = element.querySelector('.author');
+        await page.goto(url, { waitUntil: 'networkidle2' });
 
-            return {
-                text: textElement?.textContent?.trim() || '',
-                author: authorElement?.textContent?.trim() || 'Unknown',
-            };
+        const quotesOnPage = await page.evaluate(() => {
+            const quoteElements = document.querySelectorAll('.quote');
+
+            return Array.from(quoteElements).map((element) => {
+                const textElement = element.querySelector('.text');
+                const authorElement = element.querySelector('.author');
+
+                return {
+                    text: textElement?.textContent?.trim() || '',
+                    author: authorElement?.textContent?.trim() || 'Unknown',
+                };
+            });
         });
-    });
 
-    console.log(`Found ${quotes.length} quotes. Saving to database...`);
-    console.log(quotes);
+        console.log(`Found ${quotesOnPage.length} quotes on page ${i}.`);
+        allQuotes.push(...quotesOnPage);
+    }
 
-    // 5. Save functionality
-    // We loop through the scraped quotes and save them one by one
-    for (const quote of quotes) {
+    console.log(`Total quotes found: ${allQuotes.length}. Saving to database...`);
+    // console.log(allQuotes); // Optional: if you want to see all quotes
+
+    // Save functionality
+    for (const quote of allQuotes) {
         await saveQuote(quote);
     }
 
-
-    // 6. Close the browser
     await browser.close();
     console.log('Scraping finished!');
-    process.exit(0); // Exit the script explicitly
+    process.exit(0);
 }
 
 // Run the function

@@ -100,7 +100,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
           variant="outline"
           size="icon"
           onClick={previousQuote}
-          className="w-12 h-12 rounded-full border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors duration-300"
+          className="cursor-pointer w-12 h-12 rounded-full border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors duration-300"
           aria-label="Previous quote"
         >
           <ArrowLeftIcon className="w-5 h-5" />
@@ -108,7 +108,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
 
         <Button
           onClick={randomNext}
-          className="h-12 px-8 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-medium"
+          className="cursor-pointer h-12 px-8 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-medium"
         >
           <ShuffleIcon className="w-4 h-4" />
           <span>Inspire Me</span>
@@ -118,7 +118,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
           variant="outline"
           size="icon"
           onClick={nextQuote}
-          className="w-12 h-12 rounded-full border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors duration-300"
+          className="cursor-pointer w-12 h-12 rounded-full border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors duration-300"
           aria-label="Next quote"
         >
           <ArrowRightIcon className="w-5 h-5" />
