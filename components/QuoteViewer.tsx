@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { MagicButton } from "@/components/ui/MagicButton";
 import { ArrowLeftIcon, ArrowRightIcon, ShuffleIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -106,13 +107,13 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
           <ArrowLeftIcon className="w-5 h-5" />
         </Button>
 
-        <Button
+        <MagicButton
           onClick={randomNext}
-          className="cursor-pointer h-12 px-8 rounded-full bg-neutral-800 border-2 border-purple-400 text-white/90 hover:bg-neutral-800/90 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-medium"
+          className="h-12 shadow-lg hover:shadow-purple-500/20"
         >
           <ShuffleIcon className="w-4 h-4" />
           <span>Inspire Me</span>
-        </Button>
+        </MagicButton>
 
         <Button
           variant="outline"

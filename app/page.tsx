@@ -1,5 +1,5 @@
 import { listQuotes } from "@/lib/quotes";
-import QuoteViewer from "../components/quote-viewer";
+import QuoteViewer from "../components/QuoteViewer";
 
 export default async function Home() {
   const quotes = await listQuotes();
