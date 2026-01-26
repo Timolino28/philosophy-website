@@ -21,13 +21,13 @@ type NavigationItem = {
 const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
   return (
     <header className='bg-background sticky top-0 z-50'>
-      <div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-7 sm:px-6'>
-        <div>
+      <div className='relative mx-auto flex max-w-7xl items-center justify-between px-4 py-7 sm:px-6'>
+        <div className='flex items-center'>
           <a href='/'>
             <Logo className='text-foreground' />
           </a>
         </div>
-        <div className='text-muted-foreground flex flex-1 items-center gap-8 font-medium md:justify-center lg:gap-16'>
+        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-8 font-medium lg:gap-16 text-muted-foreground'>
           <a href='/single-quote' className='hover:text-primary max-md:hidden'>
             Quotes
           </a>
@@ -35,9 +35,7 @@ const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
             Authors
           </a>
         </div>
-
         <div className='flex items-center gap-6'>
-
           <DropdownMenu>
             <DropdownMenuTrigger className='md:hidden' asChild>
               <Button variant='outline' size='icon'>
@@ -62,3 +60,7 @@ const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
 }
 
 export default Navbar
+
+{/* 
+  className='text-muted-foreground flex flex-1 items-center gap-8 font-medium md:justify-center lg:gap-16'
+  */}
