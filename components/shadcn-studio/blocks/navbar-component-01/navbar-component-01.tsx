@@ -31,7 +31,7 @@ const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
           <a href='/single-quote' className='hover:text-primary max-md:hidden'>
             Quotes
           </a>
-          <a href='#' className='hover:text-primary max-md:hidden'>
+          <a href='/authors' className='hover:text-primary max-md:hidden'>
             Authors
           </a>
         </div>

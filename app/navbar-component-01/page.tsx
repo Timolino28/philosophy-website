@@ -7,7 +7,7 @@ const navigationData = [
   },
   {
     title: 'Authors',
-    href: '#'
+    href: '/authors'
   },
 ]
 
