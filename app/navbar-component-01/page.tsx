@@ -13,7 +13,7 @@ const navigationData = [
 
 const NavbarPage = () => {
   return (
-    <div className='h-60'>
+    <div className='h-fit'>
       <Navbar navigationData={navigationData} />
     </div>
   )

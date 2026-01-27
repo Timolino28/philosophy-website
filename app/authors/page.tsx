@@ -54,10 +54,10 @@ export default async function AuthorsPage(props: PageProps) {
                 </aside>
 
                 {/* Content Column */}
-                <main className="col-span-3 border rounded-xl p-6">
+                <main className="col-span-3 border h-fit min-h-[80vh] rounded-xl flex flex-col overflow-hidden">
                     {selectedAuthor ? (
-                        <div className="space-y-6">
-                            <h1 className="text-3xl font-serif font-bold text-neutral-800 border-b pb-4">
+                        <div className="p-6 overflow-y-auto">
+                            <h1 className="text-3xl font-bold text-neutral-800 border-b pb-4 mb-4">
                                 {selectedAuthor}
                             </h1>
 
@@ -72,10 +72,11 @@ export default async function AuthorsPage(props: PageProps) {
                             </div>
                         </div>
                     ) : (
-                        <div className="h-full flex items-center justify-center text-neutral-400 ">
+                        <div className="h-[80vh] flex items-center justify-center text-neutral-400 ">
                             <p>Select an author to view their quotes</p>
                         </div>
                     )}
+
                 </main>
             </div>
         </div>
