@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
-import NavbarPage from "./navbar-component-01/page";
+//import NavbarPage from "./navbar-component-01/page";
+import LayoutShell from "@/components/LayoutShell";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,8 +30,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased font-sans`}
       >
-        <NavbarPage />
-        {children}
+        <LayoutShell>
+          {children}
+        </LayoutShell>
       </body>
     </html>
   );
