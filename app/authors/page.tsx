@@ -1,6 +1,7 @@
 import { getAllQuotes } from "@/lib/quotes"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { ArrowLeftIcon } from "lucide-react"
 
 type PageProps = {
     searchParams: Promise<{
@@ -27,7 +28,10 @@ export default async function AuthorsPage(props: PageProps) {
         <div className="container mx-auto p-6">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-[500px]">
                 {/* Sidebar Column */}
-                <aside className="col-span-1 bg-neutral-50 border rounded-xl h-fit max-h-[80vh] flex flex-col overflow-hidden">
+                <aside className={cn(
+                    "col-span-1 bg-neutral-50 border rounded-xl h-fit max-h-[80vh] flex-col overflow-hidden",
+                    selectedAuthor ? "hidden md:flex" : "flex"
+                )}>
                     <div className="overflow-y-auto p-4 w-full">
                         <h2 className="font-bold mb-4 text-lg px-2">Authors</h2>
                         <div className="space-y-1">
@@ -54,9 +58,19 @@ export default async function AuthorsPage(props: PageProps) {
                 </aside>
 
                 {/* Content Column */}
-                <main className="col-span-3 border h-fit min-h-[80vh] rounded-xl flex flex-col overflow-hidden">
+                <main className={cn(
+                    "col-span-3 border h-fit min-h-[80vh] rounded-xl flex-col overflow-hidden",
+                    selectedAuthor ? "flex" : "hidden md:flex"
+                )}>
                     {selectedAuthor ? (
                         <div className="p-6 overflow-y-auto">
+                            <Link
+                                href="/authors"
+                                className="md:hidden flex items-center text-sm text-neutral-500 mb-4 hover:text-neutral-800 transition-colors"
+                            >
+                                <ArrowLeftIcon className="w-4 h-4 mr-1" /> Back to Authors
+                            </Link>
+
                             <h1 className="text-3xl font-bold text-neutral-800 border-b pb-4 mb-4">
                                 {selectedAuthor}
                             </h1>
