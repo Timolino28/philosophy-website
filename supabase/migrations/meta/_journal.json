@@ -8,6 +8,13 @@
       "when": 1768403275157,
       "tag": "0000_curious_baron_zemo",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1769591373513,
+      "tag": "0001_curious_slipstream",
+      "breakpoints": true
     }
   ]
 }
