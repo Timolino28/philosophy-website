@@ -95,7 +95,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
         )}
 
         {/* Controls */}
-        <div className="flex md:flex-row flex-col items-center justify-center gap-6 mt-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12">
           <Button
             variant="outline"
             size="icon"
