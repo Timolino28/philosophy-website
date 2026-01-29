@@ -29,11 +29,11 @@ export default async function AuthorsPage(props: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-[500px]">
                 {/* Sidebar Column */}
                 <aside className={cn(
-                    "col-span-1 bg-neutral-50 border rounded-xl h-fit max-h-[80vh] flex-col overflow-hidden",
+                    "col-span-1 bg-neutral-800 border rounded-xl h-fit max-h-[80vh] flex-col overflow-hidden",
                     selectedAuthor ? "hidden md:flex" : "flex"
                 )}>
                     <div className="overflow-y-auto p-4 w-full">
-                        <h2 className="font-bold mb-4 text-lg px-2">Authors</h2>
+                        <h2 className="font-bold mb-4 text-lg text-white/90 px-2">Authors</h2>
                         <div className="space-y-1">
                             {authors.map(([authorName, count]) => (
                                 <Link
@@ -44,11 +44,12 @@ export default async function AuthorsPage(props: PageProps) {
                                         "flex justify-between items-center p-2 rounded-lg transition-colors",
                                         selectedAuthor === authorName
                                             ? "bg-purple-100 text-purple-900 font-medium"
-                                            : "hover:bg-neutral-100 text-neutral-600"
+                                            : "hover:bg-neutral-700 text-neutral-400"
                                     )}
                                 >
                                     <span>{authorName}</span>
-                                    <span className="text-xs bg-white border px-2 py-0.5 rounded-full text-neutral-500">
+                                    <span className={cn("text-xs border px-2 py-0.5 rounded-full text-neutral-400 inline-flex items-center justify-center h-6 w-6",
+                                        selectedAuthor === authorName ? "bg-purple-100 text-purple-900" : "border-neutral-400")}>
                                         {count}
                                     </span>
                                 </Link>
@@ -59,7 +60,7 @@ export default async function AuthorsPage(props: PageProps) {
 
                 {/* Content Column */}
                 <main className={cn(
-                    "col-span-3 border h-fit min-h-[80vh] rounded-xl flex-col overflow-hidden",
+                    "col-span-3 border h-fit min-h-[80vh] rounded-xl flex-col overflow-hidden bg-neutral-200",
                     selectedAuthor ? "flex" : "hidden md:flex"
                 )}>
                     {selectedAuthor ? (
@@ -71,14 +72,14 @@ export default async function AuthorsPage(props: PageProps) {
                                 <ArrowLeftIcon className="w-4 h-4 mr-1" /> Back to Authors
                             </Link>
 
-                            <h1 className="text-3xl font-bold text-neutral-800 border-b pb-4 mb-4">
+                            <h1 className="text-3xl font-bold text-purple-900 border-b pb-4 mb-4">
                                 {selectedAuthor}
                             </h1>
 
                             <div className="grid gap-4">
                                 {displayedQuotes.map((quote) => (
-                                    <div key={quote.id} className="p-6 bg-white border rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                                        <p className="font-serif text-lg leading-relaxed text-neutral-700">
+                                    <div key={quote.id} className="p-6 bg-neutral-400 border border-neutral-500 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                                        <p className="font-serif text-lg leading-relaxed text-neutral-800">
                                             {quote.text}
                                         </p>
                                     </div>
