@@ -18,7 +18,7 @@ export function MagicButton({
                 // Core Button Styles (resetting defaults)
                 "transition-transform duration-300 active:scale-95",
                 // Focus states
-                "focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-neutral-900",
+                "focus:outline-none ",
                 className
             )}
             {...props}
