@@ -66,7 +66,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
     <div className="flex flex-col justify-center items-center mx-auto max-w-3xl px-6 min-h-[60vh]">
       <div
         className={cn(
-          "text-card-foreground p-12 rounded-xl bg-neutral-800 shadow-lg shadow-neutral-900 w-full text-center transition-opacity duration-300 ease-in-out relative",
+          "text-card-foreground p-12 rounded-xl bg-white/10 backdrop-blur-xs border border-white/20 shadow-lg shadow-neutral-900 w-full text-center transition-opacity duration-300 ease-in-out relative",
           isAnimating ? "opacity-0 translate-y-2 scale-95" : "opacity-100 translate-y-0 scale-100"
         )}
       >
@@ -76,7 +76,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
             <div className="absolute top-6 left-8 text-6xl text-white/50 font-serif leading-none select-none">“</div>
 
             {/* Quote Text */}
-            <h1 className="text-2xl md:text-3xl font-serif leading-relaxed text-white/90">
+            <h1 className="text-2xl md:text-3xl leading-relaxed text-white/90">
               {cleanQuote(q.text)}
             </h1>
 
