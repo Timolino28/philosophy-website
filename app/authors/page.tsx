@@ -43,13 +43,13 @@ export default async function AuthorsPage(props: PageProps) {
                                     className={cn(
                                         "flex justify-between items-center p-2 rounded-lg transition-colors",
                                         selectedAuthor === authorName
-                                            ? "bg-white text-neutral-900 font-medium"
+                                            ? "bg-amber-200 text-neutral-900 font-medium"
                                             : "hover:bg-neutral-700 text-neutral-400"
                                     )}
                                 >
                                     <span>{authorName}</span>
                                     <span className={cn("text-xs border px-2 py-0.5 rounded-full text-neutral-400 inline-flex items-center justify-center h-6 w-6",
-                                        selectedAuthor === authorName ? "bg-white text-neutral-900" : "border-neutral-400")}>
+                                        selectedAuthor === authorName ? "bg-amber-200 text-neutral-900" : "border-neutral-400")}>
                                         {count}
                                     </span>
                                 </Link>
@@ -74,7 +74,7 @@ export default async function AuthorsPage(props: PageProps) {
                                 </Link>
 
                                 <div className="mb-8 pb-4 border-b border-neutral-800/70">
-                                    <h1 className="text-4xl font-bold text-neutral-800 tracking-tight">
+                                    <h1 className="text-4xl font-decoration font-bold text-neutral-800 tracking-tight">
                                         {selectedAuthor}
                                     </h1>
                                     <p className="text-neutral-500 mt-2 text-sm font-medium uppercase tracking-wider">

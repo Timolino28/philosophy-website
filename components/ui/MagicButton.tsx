@@ -7,7 +7,7 @@ interface MagicButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
 export function MagicButton({
     children,
     className,
-    gradientColors = ["#E2E8F0", "#5014ff", "#E2E8F0"], // Default: Slate -> Purple -> Slate
+    gradientColors = ["#E2E8F0", "oklch(82.8% 0.189 84.429)", "#E2E8F0"],
     ...props
 }: MagicButtonProps) {
     return (

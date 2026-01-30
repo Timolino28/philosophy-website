@@ -24,7 +24,7 @@ const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
       <div className='relative mx-auto flex max-w-7xl items-center justify-between px-4 py-7 sm:px-6'>
         <div className='flex items-center'>
           <a href='/'>
-            <Logo className='text-foreground' />
+            <Logo className='font-decoration' />
           </a>
         </div>
         <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-8 font-medium lg:gap-16 text-muted-foreground'>

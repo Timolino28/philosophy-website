@@ -84,7 +84,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
             <div className="w-16 h-1 bg-white/50 mx-auto rounded-full"></div>
 
             {/* Author */}
-            <p className="text-sm md:text-base font-sans font-medium italic tracking-widest uppercase text-white/90">
+            <p className="text-sm md:text-base font-decoration font-bold tracking-widest text-white/90">
               — {q.author}
             </p>
           </div>
