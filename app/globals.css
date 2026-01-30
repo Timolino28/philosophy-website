@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -14,4 +15,8 @@
     .custom-scrollbar::-webkit-scrollbar-thumb {
         @apply bg-neutral-700 rounded-full hover:bg-neutral-600 transition-colors;
     }
+}
+
+@theme {
+    --font-decoration: "Cinzel Decorative", serif;
 }
