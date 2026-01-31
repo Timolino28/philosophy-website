@@ -108,7 +108,7 @@ export default function QuoteViewer({ quotes }: { quotes: Quote[] }) {
 
           <MagicButton
             onClick={randomNext}
-            className="h-12 shadow-lg hover:shadow-purple-500/20"
+            className="h-12 shadow-lg"
           >
             <ShuffleIcon className="w-4 h-4" />
             <span>Inspire Me</span>
