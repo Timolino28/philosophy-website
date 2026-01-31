@@ -8,7 +8,7 @@ export default async function SingleQuotePage() {
         <div className="relative isolate overflow-hidden bg-[url('/quote-bg.jpg')] bg-cover bg-center min-h-screen">
             {/* 2) Dark overlay layer (filter) */}
             <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
-            <div className="relative w-full max-w-4xl px-4 md:mt-30 mt-15 mx-auto">
+            <div className="relative w-full max-w-4xl px-4 md:mt-50 mt-30 mb-10 mx-auto">
                 <QuoteViewer quotes={quotes} />
             </div>
         </div>

@@ -1,5 +1,7 @@
 "use client"
 
+import { usePathname } from 'next/navigation'
+
 import { MenuIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -19,12 +21,15 @@ type NavigationItem = {
 }[]
 
 const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
+  const pathname = usePathname();
+  const isTransparent = pathname === '/single-quote';
+
   return (
-    <header className='bg-background sticky top-0 z-50'>
-      <div className='relative mx-auto flex max-w-7xl items-center justify-between px-4 py-7 sm:px-6'>
+    <header className={`${isTransparent ? ' fixed top-0 w-full bg-transparent text-white' : 'sticky top - 0 bg - background'} z-50 transition-colors`}>
+      < div className='relative mx-auto flex max-w-7xl items-center justify-between px-4 py-7 sm:px-6' >
         <div className='flex items-center'>
           <a href='/'>
-            <Logo className='font-decoration' />
+            <Logo className="font-decoration" />
           </a>
         </div>
         <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-8 font-medium lg:gap-16 text-muted-foreground'>
@@ -54,8 +59,8 @@ const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </div>
-    </header>
+      </div >
+    </header >
   )
 }
 
