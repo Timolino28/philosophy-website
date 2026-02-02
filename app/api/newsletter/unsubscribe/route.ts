@@ -5,7 +5,19 @@ import { eq } from "drizzle-orm";
 import { verifyUnsubscribeToken } from "@/lib/newsletterToken";
 
 export async function GET(req: Request) {
-    const url = new URL(req.url)
+    const DB_URL = process.env.DATABASE_URL;
+    if (!DB_URL) {
+        return NextResponse.json({ error: 'DATABASE_URL not configured' }, { status: 500 });
+    }
+
+    let url: URL
+
+    try {
+        url = new URL(req.url)
+    } catch (error) {
+        return NextResponse.json({ error: "Invalid request URL" }, { status: 400 })
+    }
+
     const token = url.searchParams.get("token")
 
     if (!token) {

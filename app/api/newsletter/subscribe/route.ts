@@ -8,7 +8,13 @@ function isValidEmail(email: string) {
 }
 
 export async function POST(req: Request) {
-    const body = (await req.json().catch(() => null)) as { email?: string; timezone?: string } | null;
+    let body: { email?: string; timezone?: string } | null = null
+
+    try {
+        body = await req.json()
+    } catch (error) {
+        return NextResponse.json({ error: "Invalid request body" }, { status: 400 })
+    }
 
     const email = body?.email?.trim().toLowerCase();
     const timezone = body?.timezone?.trim();
