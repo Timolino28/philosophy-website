@@ -29,7 +29,7 @@ export default async function AuthorsPage(props: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-[500px]">
                 {/* Sidebar Column */}
                 <aside className={cn(
-                    "col-span-1 bg-neutral-800 rounded-xl h-fit max-h-[80vh] flex-col overflow-hidden",
+                    "col-span-1 mt-10 md:mt-0 bg-neutral-800 rounded-xl h-fit max-h-[80vh] flex-col overflow-hidden",
                     selectedAuthor ? "hidden md:flex" : "flex"
                 )}>
                     <div className="overflow-y-auto custom-scrollbar p-4 w-full">

@@ -48,7 +48,7 @@ const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
                 <span className='sr-only'>Menu</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className='w-56' align='end'>
+            <DropdownMenuContent className='w-56 bg-white' align='end'>
               <DropdownMenuGroup>
                 {navigationData.map((item, index) => (
                   <DropdownMenuItem key={index}>
