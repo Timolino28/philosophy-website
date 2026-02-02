@@ -5,7 +5,12 @@ import { quotes, authors } from "@/db/schema";
 import { eq, sql } from "drizzle-orm";
 
 export async function GET() {
-    const resend = new Resend(process.env.RESEND_API_KEY!);
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
+        return NextResponse.json({ error: "RESEND_API_KEY not configured" }, { status: 500 });
+    }
+    const resend = new Resend(apiKey);
 
     // 1 Random quote from db 
     const rows = await db.select({
